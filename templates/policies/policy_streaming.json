@@ -1,0 +1,57 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "KinesisAdmin",
+      "Effect": "Allow",
+      "Action": [
+        "kinesis:CreateStream",
+        "kinesis:DescribeStream",
+        "kinesis:DescribeStreamSummary",
+        "kinesis:ListStreams",
+        "kinesis:ListShards",
+        "kinesis:DeleteStream"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "KinesisDataUserEvents",
+      "Effect": "Allow",
+      "Action": [
+        "kinesis:PutRecord",
+        "kinesis:PutRecords",
+        "kinesis:GetShardIterator",
+        "kinesis:GetRecords",
+        "kinesis:DescribeStream",
+        "kinesis:DescribeStreamSummary",
+        "kinesis:ListStreams"
+      ],
+      "Resource": "arn:aws:kinesis:us-east-1:*:stream/user-events-stream"
+    },
+    {
+      "Sid": "FirehoseAdmin",
+      "Effect": "Allow",
+      "Action": [
+        "firehose:CreateDeliveryStream",
+        "firehose:DeleteDeliveryStream",
+        "firehose:DescribeDeliveryStream",
+        "firehose:ListDeliveryStreams"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "FirehoseDataUserEvents",
+      "Effect": "Allow",
+      "Action": [
+        "firehose:PutRecord",
+        "firehose:PutRecordBatch",
+        "firehose:CreateDeliveryStream",
+        "firehose:DescribeDeliveryStream",
+        "firehose:ListDeliveryStreams",
+        "firehose:DeleteDeliveryStream"
+      ],
+      "Resource": "arn:aws:firehose:us-east-1:*:deliverystream/user-events-to-s3"
+    }
+  ]
+}
+

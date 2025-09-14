@@ -1,0 +1,50 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "GlueCatalogDatabaseTable",
+      "Effect": "Allow",
+      "Action": [
+        "glue:CreateDatabase",
+        "glue:DeleteDatabase",
+        "glue:GetDatabase",
+        "glue:GetDatabases",
+        "glue:CreateTable",
+        "glue:GetTable",
+        "glue:GetTables"
+      ],
+      "Resource": [
+        "arn:aws:glue:*:*:catalog",
+        "arn:aws:glue:*:*:database/*",
+        "arn:aws:glue:*:*:table/*/*"
+      ]
+    },
+    {
+      "Sid": "GlueCrawlerAll",
+      "Effect": "Allow",
+      "Action": [
+        "glue:CreateCrawler",
+        "glue:GetCrawler",
+        "glue:DeleteCrawler",
+        "glue:StartCrawler",
+        "glue:GetTables",
+        "glue:GetTable",
+        "glue:GetDatabase",
+        "glue:GetDatabases"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "S3ReadForGlue",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject","s3:ListBucket"],
+      "Resource": [
+        "arn:aws:s3:::my-data-lake-bucket-12345",
+        "arn:aws:s3:::my-data-lake-bucket-12345/*",
+        "arn:aws:s3:::codesignal-aws-bucket",
+        "arn:aws:s3:::codesignal-aws-bucket/*"
+      ]
+    }
+  ]
+}
+

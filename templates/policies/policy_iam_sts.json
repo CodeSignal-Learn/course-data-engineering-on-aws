@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "IAMPassRoleSpecific",
+      "Effect": "Allow",
+      "Action": ["iam:PassRole"],
+      "Resource": [
+        "arn:aws:iam::*:role/glue_s3",
+        "arn:aws:iam::*:role/FirehoseDeliveryRole"
+      ]
+    },
+    {
+      "Sid": "IAMPassRoleGeneric",
+      "Effect": "Allow",
+      "Action": ["iam:PassRole"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "IAMGetRoleForFirehose",
+      "Effect": "Allow",
+      "Action": ["iam:GetRole"],
+      "Resource": "arn:aws:iam::*:role/FirehoseDeliveryRole"
+    },
+    {
+      "Sid": "STSGetCallerIdentity",
+      "Effect": "Allow",
+      "Action": ["sts:GetCallerIdentity"],
+      "Resource": "*"
+    }
+  ]
+}
+
