@@ -61,7 +61,7 @@ pip install -r requirements.txt
 python -m venv .venv && source .venv/bin/activate
 
 # install dependencies
-pip install boto3 botocore
+pip install -r requirements.txt
 ```
 
 ### Usage
